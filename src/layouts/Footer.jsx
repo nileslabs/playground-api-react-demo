@@ -26,7 +26,7 @@ export function Footer() {
             <span>© {currentYear} Playground API</span>
             <span className="hidden sm:inline text-slate-600">•</span>
             <a
-              href="https://playground-api-xi.vercel.app/docs"
+              href="https://playground.nileslabs.com/docs"
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors"
@@ -35,7 +35,7 @@ export function Footer() {
             </a>
             <span className="hidden sm:inline text-slate-600">•</span>
             <a
-              href="https://github.com/nileshcodehub/playground_api"
+              href="https://github.com/nileslabs/playground_api"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-300 hover:text-white transition-colors"

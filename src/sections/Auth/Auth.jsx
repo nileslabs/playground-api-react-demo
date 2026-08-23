@@ -158,7 +158,7 @@ const Auth = () => {
         badge="JWT Authentication Simulator"
         endpoint="POST /api/v1/auth/login"
         codeSnippet={`// 1. Authenticate with username/password to receive tokens
-const res = await fetch('https://playground-api-xi.vercel.app/api/v1/auth/login', {
+const res = await fetch('https://playground.nileslabs.com/api/v1/auth/login', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -169,7 +169,7 @@ const res = await fetch('https://playground-api-xi.vercel.app/api/v1/auth/login'
 const { access_token, refresh_token, user } = await res.json();
 
 // 2. Access protected endpoint with Bearer token
-const profileRes = await fetch('https://playground-api-xi.vercel.app/api/v1/auth/me', {
+const profileRes = await fetch('https://playground.nileslabs.com/api/v1/auth/me', {
   headers: { Authorization: \`Bearer \${access_token}\` },
 });
 const profile = await profileRes.json();`}

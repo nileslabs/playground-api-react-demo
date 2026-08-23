@@ -734,13 +734,13 @@ const Posts = () => {
         badge="Stateful CRUD Engine"
         endpoint="POST /api/v1/posts"
         codeSnippet={`// 1. Fetch paginated posts with author filter
-const res = await fetch('https://playground-api-xi.vercel.app/api/v1/posts?page=1&limit=10&_sort=id&_order=desc', {
+const res = await fetch('https://playground.nileslabs.com/api/v1/posts?page=1&limit=10&_sort=id&_order=desc', {
   credentials: 'include',
 });
 const { data, pagination } = await res.json();
 
 // 2. Create a new post (Overlaid into your private session)
-await fetch('https://playground-api-xi.vercel.app/api/v1/posts', {
+await fetch('https://playground.nileslabs.com/api/v1/posts', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   credentials: 'include',

@@ -2,7 +2,7 @@
  * Centralized API Client with Live Request Inspector Interceptor
  */
 
-const BASE = (import.meta.env.VITE_API_BASE_URL || 'https://playground-api-xi.vercel.app/api').replace(/\/+$/, '');
+const BASE = (import.meta.env.VITE_API_BASE_URL || 'https://playground.nileslabs.com/api').replace(/\/+$/, '');
 
 // Listeners for Live API Inspector
 const listeners = new Set();

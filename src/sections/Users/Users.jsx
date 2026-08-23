@@ -598,13 +598,13 @@ const Users = () => {
         badge="Search & Avatar Engine"
         endpoint="GET /api/v1/users?q=Bret"
         codeSnippet={`// 1. Search users by query or sort by name
-const res = await fetch('https://playground-api-xi.vercel.app/api/v1/users?q=Bret&_sort=name&_order=asc', {
+const res = await fetch('https://playground.nileslabs.com/api/v1/users?q=Bret&_sort=name&_order=asc', {
   credentials: 'include',
 });
 const { data } = await res.json();
 
 // 2. Render deterministic vector SVG avatar for any username
-const avatarUrl = 'https://playground-api-xi.vercel.app/api/v1/avatars/' + encodeURIComponent(user.username);
+const avatarUrl = 'https://playground.nileslabs.com/api/v1/avatars/' + encodeURIComponent(user.username);
 // <img src={avatarUrl} alt={user.name} />`}
         payloadExample={{
           name: "Leanne Graham",

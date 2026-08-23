@@ -331,11 +331,11 @@ const Media = () => {
         badge="Procedural SVG API"
         endpoint="GET /api/v1/avatars/:seed"
         codeSnippet={`// 1. Generate direct avatar URL for any seed
-const avatarUrl = 'https://playground-api-xi.vercel.app/api/v1/avatars/alex.dev?size=128&rounded=true';
+const avatarUrl = 'https://playground.nileslabs.com/api/v1/avatars/alex.dev?size=128&rounded=true';
 // <img src={avatarUrl} alt="Avatar" />
 
 // 2. Generate custom thumbnail banner SVG
-const thumbUrl = 'https://playground-api-xi.vercel.app/api/v1/thumbnails/react-19?width=1200&height=630&text=React+19+Guide';
+const thumbUrl = 'https://playground.nileslabs.com/api/v1/thumbnails/react-19?width=1200&height=630&text=React+19+Guide';
 // <img src={thumbUrl} alt="Cover" />`}
         payloadExample={{
           seed: "alex.dev",

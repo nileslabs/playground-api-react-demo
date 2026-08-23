@@ -668,13 +668,13 @@ const Todos = () => {
         badge="Stateful Mutations"
         endpoint="PATCH /api/v1/todos/:id"
         codeSnippet={`// 1. Fetch filtered tasks (e.g. pending vs completed)
-const res = await fetch('https://playground-api-xi.vercel.app/api/v1/todos?completed=false&_sort=id&_order=desc', {
+const res = await fetch('https://playground.nileslabs.com/api/v1/todos?completed=false&_sort=id&_order=desc', {
   credentials: 'include',
 });
 const { data } = await res.json();
 
 // 2. Toggle task completion status in your sandbox
-await fetch('https://playground-api-xi.vercel.app/api/v1/todos/1', {
+await fetch('https://playground.nileslabs.com/api/v1/todos/1', {
   method: 'PATCH',
   headers: { 'Content-Type': 'application/json' },
   credentials: 'include',

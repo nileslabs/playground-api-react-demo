@@ -465,13 +465,13 @@ const Products = () => {
         badge="Playground API Superpower"
         endpoint="POST /api/v1/custom/products"
         codeSnippet={`// 1. Fetch products with search, category & price sorting
-const res = await fetch('https://playground-api-xi.vercel.app/api/v1/custom/products?category=Electronics&_sort=price&_order=asc', {
+const res = await fetch('https://playground.nileslabs.com/api/v1/custom/products?category=Electronics&_sort=price&_order=asc', {
   credentials: 'include',
 });
 const { data } = await res.json();
 
 // 2. Create custom product in your sandbox
-await fetch('https://playground-api-xi.vercel.app/api/v1/custom/products', {
+await fetch('https://playground.nileslabs.com/api/v1/custom/products', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   credentials: 'include',

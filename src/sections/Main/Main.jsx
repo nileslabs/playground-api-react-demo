@@ -108,7 +108,7 @@ export function Main() {
               <span>→</span>
             </Link>
             <a
-              href="https://playground-api-xi.vercel.app/docs"
+              href="https://playground.nileslabs.com/docs"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/10 text-white font-bold text-sm transition-colors text-center"
@@ -239,13 +239,13 @@ export function Main() {
 
         <pre className="p-4 rounded-2xl bg-[#090b10] border border-white/10 font-mono text-xs text-slate-200 overflow-x-auto leading-relaxed">
           <code>{`// 1. Fetch posts with persistent session cookies
-const res = await fetch('https://playground-api-xi.vercel.app/api/v1/posts', {
+const res = await fetch('https://playground.nileslabs.com/api/v1/posts', {
   credentials: 'include', // Preserves your private session sandbox
 });
 const { data } = await res.json();
 
 // 2. Create a custom post (Persists across page refreshes!)
-await fetch('https://playground-api-xi.vercel.app/api/v1/posts', {
+await fetch('https://playground.nileslabs.com/api/v1/posts', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   credentials: 'include',

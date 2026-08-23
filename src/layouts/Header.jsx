@@ -132,7 +132,7 @@ export function Header({ onToggleSidebar }) {
 
           {/* Docs Direct Link */}
           <a
-            href="https://playground-api-xi.vercel.app/docs"
+            href="https://playground.nileslabs.com/docs"
             target="_blank"
             rel="noopener noreferrer"
             className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md shadow-emerald-600/20 flex items-center gap-1"
