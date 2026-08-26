@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { usersApi } from "@/api/users";
+import { mediaApi } from "@/api/media";
 import Pagination from "@/components/Pagination";
 import DataTable from "@/components/DataTable";
 import Modal from "@/components/Modal";
@@ -16,8 +17,6 @@ const SORT_OPTIONS = [
   { value: "username", label: "Username" },
   { value: "email", label: "Email Address" },
 ];
-
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 
 const EMPTY_FORM = {
   name: "",
@@ -198,7 +197,9 @@ function UserInspectorDrawer({ user, onClose, onEdit, onDelete }) {
 
   if (!user) return null;
 
-  const avatarSrc = user.avatar ? `${API_BASE}${user.avatar}` : null;
+  const avatarSrc = user.avatar && user.avatar.startsWith('http')
+    ? user.avatar
+    : mediaApi.getAvatarUrl(user.username || user.name || user.id, { size: 128 });
 
   const handleCopyJson = () => {
     navigator.clipboard.writeText(JSON.stringify(user, null, 2));
@@ -220,18 +221,14 @@ function UserInspectorDrawer({ user, onClose, onEdit, onDelete }) {
         <div className="p-6 border-b border-[rgba(255,255,255,0.08)] bg-[#0c0e14] shrink-0">
           <div className="flex items-start justify-between gap-4 mb-4">
             <div className="flex items-center gap-3.5">
-              {avatarSrc ? (
-                <img
-                  src={avatarSrc}
-                  alt={user.name}
-                  className="w-14 h-14 rounded-2xl object-cover shrink-0 ring-2 ring-amber-500/40"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-              ) : (
-                <Avatar name={user.name} size="lg" />
-              )}
+              <img
+                src={avatarSrc}
+                alt={user.name}
+                className="w-14 h-14 rounded-2xl object-cover shrink-0 ring-2 ring-emerald-500/40"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
               <div className="min-w-0">
                 <h2 className="text-lg font-bold text-white tracking-tight truncate">
                   {user.name}
@@ -728,18 +725,14 @@ const avatarUrl = 'https://playground.nileslabs.com/api/v1/avatars/' + encodeURI
                   className="flex items-center gap-3 min-w-0 text-left hover:opacity-90 transition-opacity w-full cursor-pointer group"
                   title="Inspect Profile"
                 >
-                  {user.avatar ? (
-                    <img
-                      src={`${API_BASE}${user.avatar}`}
-                      alt={user.name}
-                      className="w-9 h-9 rounded-xl object-cover shrink-0 ring-1 ring-amber-500/30"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
-                    />
-                  ) : (
-                    <Avatar name={user.name} />
-                  )}
+                  <img
+                    src={user.avatar && user.avatar.startsWith('http') ? user.avatar : mediaApi.getAvatarUrl(user.username || user.id, { size: 64 })}
+                    alt={user.name}
+                    className="w-9 h-9 rounded-xl object-cover shrink-0 ring-1 ring-emerald-500/30"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
                   <div className="min-w-0">
                     <p className="text-sm font-bold text-white truncate leading-snug group-hover:text-emerald-400 transition-colors">
                       {user.name}
@@ -838,15 +831,14 @@ const avatarUrl = 'https://playground.nileslabs.com/api/v1/avatars/' + encodeURI
                 {/* Card Top Strip */}
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    {user.avatar ? (
-                      <img
-                        src={`${API_BASE}${user.avatar}`}
-                        alt={user.name}
-                        className="w-11 h-11 rounded-xl object-cover shrink-0 ring-1 ring-amber-500/30"
-                      />
-                    ) : (
-                      <Avatar name={user.name} size="md" />
-                    )}
+                    <img
+                      src={user.avatar && user.avatar.startsWith('http') ? user.avatar : mediaApi.getAvatarUrl(user.username || user.id, { size: 96 })}
+                      alt={user.name}
+                      className="w-11 h-11 rounded-xl object-cover shrink-0 ring-1 ring-emerald-500/30"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
                     <div className="min-w-0">
                       <h3 className="font-bold text-white text-base truncate group-hover:text-emerald-400 transition-colors">
                         {user.name}

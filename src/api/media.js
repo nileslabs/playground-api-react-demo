@@ -1,6 +1,4 @@
-const BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '');
-
-const cleanBase = `${BASE}/v1`;
+import { getBaseUrl } from './client';
 
 export const mediaApi = {
   /**
@@ -18,7 +16,7 @@ export const mediaApi = {
     if (size && size !== 128) params.set('size', String(size));
     if (rounded === false || rounded === 'false') params.set('rounded', 'false');
     const qs = params.toString();
-    return `${cleanBase}/avatars/${cleanSeed}${qs ? `?${qs}` : ''}`;
+    return `${getBaseUrl()}/avatars/${cleanSeed}${qs ? `?${qs}` : ''}`;
   },
 
   /**
@@ -51,7 +49,7 @@ export const mediaApi = {
     const finalDesc = (description || desc || '').trim();
     if (finalDesc) params.set('description', finalDesc);
     const qs = params.toString();
-    return `${cleanBase}/thumbnails/${cleanSeed}${qs ? `?${qs}` : ''}`;
+    return `${getBaseUrl()}/thumbnails/${cleanSeed}${qs ? `?${qs}` : ''}`;
   },
 
   /**
