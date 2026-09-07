@@ -39,7 +39,7 @@ export async function apiRequest(path, options = {}) {
   }
 
   // Auth Bearer token if logged in
-  const authToken = localStorage.getItem('access_token');
+  const authToken = localStorage.getItem('playground_access_token') || localStorage.getItem('access_token');
   if (authToken && !headers.has('Authorization')) {
     headers.set('Authorization', `Bearer ${authToken}`);
   }
